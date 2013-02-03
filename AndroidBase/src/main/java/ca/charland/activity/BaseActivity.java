@@ -5,6 +5,7 @@ import roboguice.inject.InjectView;
 import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import ca.charland.R;
 import ca.charland.db.DataSource;
 
@@ -13,7 +14,9 @@ import ca.charland.db.DataSource;
  */
 public abstract class BaseActivity extends RoboActivity {
 
-	@InjectView(R.id.next)
+	/*
+	 * This cannot be injected because of a limitation in robo guice not allowing injection from an abstract class.
+	 */
 	private Button next;
 	
 	protected DataSource datasource;
@@ -25,6 +28,7 @@ public abstract class BaseActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(getResourceIDForLayout());
+		next = (Button) findViewById(R.id.next);
 		datasource = getDataSource();
 		next.setOnClickListener(getNextButtonOnClickListener());
 	}

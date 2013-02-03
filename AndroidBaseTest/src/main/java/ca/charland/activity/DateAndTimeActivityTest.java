@@ -29,11 +29,6 @@ public class DateAndTimeActivityTest {
 		}
 
 		@Override
-		protected NextButtonOnClickListener getNextButtonOnClickListener() {
-			return null;
-		}
-
-		@Override
 		protected Class<?> getNextClass() {
 			return null;
 		}
