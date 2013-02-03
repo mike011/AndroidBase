@@ -9,12 +9,14 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.R;
 import ca.charland.activity.manage.AllPeopleListActivity;
+import ca.charland.db.DataSource;
 import ca.charland.db.DataTable;
+import ca.charland.db.DateListDataSource;
 
 /**
  * @author mcharland
  */
-public abstract class DateAndTimeActivity extends BaseActivity {
+public class DateAndTimeActivity extends BaseActivity {
 
 	private static final int SECONDS = 0;
 
@@ -31,13 +33,9 @@ public abstract class DateAndTimeActivity extends BaseActivity {
 
 	@Override
 	protected ContentValues getValues() {
-
 		ContentValues content = new ContentValues();
-
 		addPerson(content);
-
 		content.put(DataTable.DATE_COLUMN_NAME, getTime());
-
 		return content;
 	}
 
@@ -83,5 +81,20 @@ public abstract class DateAndTimeActivity extends BaseActivity {
 			time = timeObject;
 		}
 		return time;
+	}
+
+	@Override
+	protected NextButtonOnClickListener getNextButtonOnClickListener() {
+		return new NextButtonOnClickListener(this, datasource);
+	}
+
+	@Override
+	protected DataSource getDataSource() {
+		return new DateListDataSource(null);
+	}
+
+	@Override
+	protected Class<?> getNextClass() {
+		return null;
 	}
 }

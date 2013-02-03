@@ -16,7 +16,7 @@ import ca.charland.db.DataTable;
  * 
  * @author mcharland
  */
-public abstract class NextButtonOnClickListener implements View.OnClickListener {
+public class NextButtonOnClickListener implements View.OnClickListener {
 
 	/** A unique identifier of a row in the table. */
 	static final String ID = "ROW_ID";
@@ -63,7 +63,9 @@ public abstract class NextButtonOnClickListener implements View.OnClickListener 
 		return newIntent;
 	}
 
-	protected abstract boolean isLastActivity(Activity activity);
+	protected boolean isLastActivity(Activity activity) {
+		return false;
+	}
 
 	private long getID() {
 		long id = -1;
@@ -95,5 +97,7 @@ public abstract class NextButtonOnClickListener implements View.OnClickListener 
 		return person;
 	}
 
-	protected abstract boolean isContentValid();
+	protected boolean isContentValid() {
+		return true;
+	}
 }

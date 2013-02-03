@@ -6,7 +6,7 @@ import java.util.List;
 
 import android.database.Cursor;
 
-public abstract class DateListDataSource extends DataSource {
+public class DateListDataSource extends DataSource {
 
 	public DateListDataSource(DatabaseConnection helper) {
 		super(helper);
@@ -23,7 +23,9 @@ public abstract class DateListDataSource extends DataSource {
 		return td;
 	}
 
-	protected abstract BaseData getData();
+	protected BaseData getData() {
+		return null;
+	}
 
 	@Override
 	public List<String> getAllColumns() {
