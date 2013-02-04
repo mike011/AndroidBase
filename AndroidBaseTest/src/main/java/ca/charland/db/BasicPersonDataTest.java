@@ -1,6 +1,8 @@
 package ca.charland.db;
 
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -11,7 +13,7 @@ public class BasicPersonDataTest {
 		BasicPersonData p = new BasicPersonData();
 		String name = "Bob";
 		p.setName(name);
-		assertEquals(name, p.getName());
+		assertThat(p.getName(), is(name));
 	}
 
 	@Test
@@ -20,5 +22,6 @@ public class BasicPersonDataTest {
 		String name = "Frank";
 		p.setName(name);
 		assertEquals(name, p.toString());
+		assertThat(p.toString(), is(name));
 	}
 }

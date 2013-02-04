@@ -1,6 +1,9 @@
 package ca.charland.activity;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -52,7 +55,7 @@ public class DateAndTimeActivityTest {
 		ContentValues values = activity.getValues();
 		assertTrue(values.containsKey(DataTable.Column.DATE.toString()));
 		Long object = (Long) values.get(DataTable.Column.DATE.toString());
-		assertTrue(object.intValue() < 0);
+		assertThat(object.intValue(), is(lessThan(0)));
 	}
 
 	/**
@@ -60,6 +63,6 @@ public class DateAndTimeActivityTest {
 	 */
 	@Test
 	public final void testGetNextClass() {
-		assertEquals(null, activity.getNextClass());
+		assertThat(activity.getNextClass(), is(nullValue()));
 	}
 }

@@ -1,6 +1,7 @@
 package ca.charland.db;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public class ContentValuesKeyValuePairTest {
 	public void testGetKey() {
 		String key = "monkey";
 		ContentValuesKeyValuePair pair = new ContentValuesKeyValuePair(key, "");
-		assertEquals(key, pair.getKey());
+		assertThat(pair.getKey(), is(key));
 	}
 
 	/**
@@ -23,7 +24,7 @@ public class ContentValuesKeyValuePairTest {
 	public void testGetValue() {
 		String value = "monkey";
 		ContentValuesKeyValuePair pair = new ContentValuesKeyValuePair("", value);
-		assertEquals(value, pair.getValue());
+		assertThat(pair.getValue(), is(value));
 	}
 
 }

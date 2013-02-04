@@ -1,6 +1,7 @@
 package ca.charland.db;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -11,6 +12,6 @@ public class DataTest {
 		Data data = new Data();
 		int id = 234;
 		data.setId(id);
-		assertEquals(id, data.getId());
+		assertThat(data.getId(), is(id));
 	}
 }

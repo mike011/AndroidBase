@@ -1,10 +1,10 @@
 package ca.charland.db;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,18 +54,18 @@ public class DataSourceTest {
 
 	@Test
 	public void testDataSource() {
-		assertNotNull(pds);
+		assertThat(pds, is(notNullValue()));
 	}
 
 	@Test
 	public void testOpenDatabaseConnection() {
-		assertTrue(pds.isDatabaseConnectionOpen());
+		assertThat(pds.isDatabaseConnectionOpen(), is(true));
 	}
 
 	@Test
 	public void testInsertTableRow() {
 		long id = pds.insertTableRow(new ContentValues());
-		assertEquals(-1, id);
+		assertThat(id, equalTo((long) -1));
 	}
 
 	@Test(expected = java.lang.RuntimeException.class)
@@ -90,18 +90,17 @@ public class DataSourceTest {
 
 	@Test
 	public void testConvertToAbstractData() {
-		assertNull(pds.convertToAbstractData(null));
+		assertThat(pds.convertToAbstractData(null), is(nullValue()));
 	}
 
 	@Test
 	public void testGetAllColumns() {
-		assertNotNull(pds.getAllColumns());
+		assertThat(pds.getAllColumns(), is(notNullValue()));
 	}
 
 	@Test
 	public void testCloseDatabaseConnection() {
 		pds.closeDatabaseConnection();
-		assertFalse(pds.isDatabaseConnectionOpen());
+		assertThat(pds.isDatabaseConnectionOpen(), is(false));
 	}
-
 }

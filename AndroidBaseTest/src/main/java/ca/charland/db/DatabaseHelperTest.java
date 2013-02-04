@@ -1,7 +1,8 @@
 package ca.charland.db;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -33,7 +34,7 @@ public class DatabaseHelperTest {
 
 	@Test
 	public void testDatabaseHelper() {
-		assertNotNull(helper);
+		assertThat(helper, is(notNullValue()));
 	}
 
 	@Test
@@ -50,6 +51,6 @@ public class DatabaseHelperTest {
 
 	@Test
 	public void testGetTableName() {
-		assertEquals(table, helper.getTableName());
+		assertThat(helper.getTableName(), is(table));
 	}
 }

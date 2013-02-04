@@ -1,7 +1,8 @@
 package ca.charland.db;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
@@ -27,18 +28,18 @@ public class BasicPersonDataSourceTest {
 	public void tearDown() {
 		bpds.closeDatabaseConnection();
 	}
-	
+
 	@Test
 	public void testBasicPersonDataSource() {
-		assertNotNull(bpds);
+		assertThat(bpds, notNullValue());
 	}
-	
+
 	@Test
 	public void testGetAllColumns() {
 		List<String> allColumns = bpds.getAllColumns();
-		assertEquals(2, allColumns.size());
-		assertEquals("_id", allColumns.get(0));
-		assertEquals("name", allColumns.get(1));
+		assertThat(allColumns.size(), is(2));
+		assertThat(allColumns.get(0), is("_id"));
+		assertThat(allColumns.get(1), is("name"));
 	}
 
 	@Test
@@ -46,8 +47,9 @@ public class BasicPersonDataSourceTest {
 		String value = "frank";
 		bpds.populateContentValuesKeyValuePairs(value);
 		ContentValues contentValues = bpds.getContentValues();
-		assertEquals(1, contentValues.size());
-		assertEquals(value, contentValues.get(BasicPersonDataTable.Column.NAME.toString()));
+		assertThat(contentValues.size(), is(1));
+		String columnValue = (String) contentValues.get(BasicPersonDataTable.Column.NAME.toString());
+		assertThat(columnValue, is(value));
 	}
 
 	@Test
@@ -60,10 +62,9 @@ public class BasicPersonDataSourceTest {
 		cursor.setString(1, name);
 
 		BasicPersonData person = bpds.convertToAbstractData(cursor);
-		
-		assertEquals(id, person.getId());
-		assertEquals(name, person.getName());
 
+		assertThat(person.getId(), is(id));
+		assertThat(person.getName(), is(name));
 	}
 
 }

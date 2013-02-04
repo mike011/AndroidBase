@@ -1,6 +1,7 @@
 package ca.charland.db;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class BasicPersonDataTableTest {
 	 */
 	@Test
 	public void testCreate() {
-		assertEquals("create table person( _id integer primary key autoincrement, name text not null);", BasicPersonDataTable.CREATE_PEOPLE_TABLE);
+		assertThat(BasicPersonDataTable.CREATE_PEOPLE_TABLE, is("create table person( _id integer primary key autoincrement, name text not null);"));
 	}
 
 }

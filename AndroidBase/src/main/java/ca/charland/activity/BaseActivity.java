@@ -1,11 +1,9 @@
 package ca.charland.activity;
 
 import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectView;
 import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 import ca.charland.R;
 import ca.charland.db.DataSource;
 
