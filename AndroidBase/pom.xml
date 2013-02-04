@@ -5,7 +5,7 @@
 	<groupId>ca.charland</groupId>
 	<artifactId>AndroidBase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>apk</packaging>
+	<packaging>apklib</packaging>
 	<name>AndroidBase</name>
 
 	<properties>

@@ -18,10 +18,10 @@ import ca.charland.R;
  */
 public abstract class PersonHomeActivity extends RoboActivity {
 
-	@InjectView(R.id.add)
+	@InjectView(tag="add")
 	private Button add;
 
-	@InjectView(R.id.view)
+	@InjectView(tag="view")
 	private Button view;
 	
 	private PersonHomeActivityDataHolder activityData;

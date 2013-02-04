@@ -2,7 +2,6 @@ package ca.charland.activity;
 
 import java.util.Date;
 
-import roboguice.inject.InjectView;
 import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.DatePicker;
@@ -20,15 +19,20 @@ public class DateAndTimeActivity extends BaseActivity {
 
 	private static final int SECONDS = 0;
 
-	@InjectView(R.id.entry_date)
 	private DatePicker datePicker;
 
-	@InjectView(R.id.entry_time)
 	private TimePicker timePicker;
 
 	@Override
 	protected int getResourceIDForLayout() {
 		return R.layout.date_view;
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		datePicker = (DatePicker) findViewById(R.id.entry_date);
+		timePicker = (TimePicker) findViewById(R.id.entry_time);
 	}
 
 	@Override
@@ -40,7 +44,8 @@ public class DateAndTimeActivity extends BaseActivity {
 	}
 
 	private long getTime() {
-		Date date = new Date(getYear(), getMonth(), getDay(), getHours(), getMinutes(), SECONDS);
+		Date date = new Date(getYear(), getMonth(), getDay(), getHours(),
+				getMinutes(), SECONDS);
 		return date.getTime();
 	}
 
@@ -48,12 +53,12 @@ public class DateAndTimeActivity extends BaseActivity {
 		int year = datePicker.getYear();
 		return year - 1900;
 	}
-	
+
 	private int getMonth() {
 		int month = datePicker.getMonth();
 		return month;
 	}
-	
+
 	private int getDay() {
 		int day = datePicker.getDayOfMonth();
 		return day;
@@ -74,7 +79,7 @@ public class DateAndTimeActivity extends BaseActivity {
 		Integer hourObject = timePicker.getCurrentHour();
 		return updateBasedOnNull(hourObject);
 	}
-	
+
 	private int updateBasedOnNull(Integer timeObject) {
 		int time = 0;
 		if (timeObject != null) {
