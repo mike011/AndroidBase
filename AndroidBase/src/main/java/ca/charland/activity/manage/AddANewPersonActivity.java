@@ -18,10 +18,10 @@ public abstract class AddANewPersonActivity extends RoboActivity {
 
 	protected BasicPersonDataSource datasource;
 
-	@InjectView(tag="name")
+	@InjectView(R.id.name)
 	protected EditText name;
 
-	@InjectView(tag="save")
+	@InjectView(R.id.save)
 	protected Button save;
 
 	@Override
