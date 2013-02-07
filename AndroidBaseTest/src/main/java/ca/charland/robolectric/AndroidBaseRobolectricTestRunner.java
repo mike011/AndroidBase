@@ -17,8 +17,7 @@ import com.xtremelabs.robolectric.shadows.ShadowActivity;
 import com.xtremelabs.robolectric.shadows.ShadowResources;
 
 /**
- * Custom runner to redirect to the development folder. Specifically so the res
- * and manifest can be found.
+ * Custom runner to redirect to the development folder. Specifically so the res and manifest can be found.
  * 
  * @author mcharland
  * 
@@ -27,14 +26,12 @@ public class AndroidBaseRobolectricTestRunner extends RobolectricTestRunner {
 
 	private Injector injector;
 
-	public AndroidBaseRobolectricTestRunner(Class<?> testClass)
-			throws InitializationError {
-		this(testClass, "AndroidBase");
+	public AndroidBaseRobolectricTestRunner(Class<?> testClass) throws InitializationError {
+		this(testClass, System.getenv("ANDROID_BASE_HOME") + "\\AndroidBase");
 	}
 
-	public AndroidBaseRobolectricTestRunner(Class<?> testClass,
-			String configFile) throws InitializationError {
-		super(testClass, new File("../" + configFile));
+	public AndroidBaseRobolectricTestRunner(Class<?> testClass, String configFile) throws InitializationError {
+		super(testClass, new File(configFile));
 	}
 
 	@Override
