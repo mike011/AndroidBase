@@ -3,7 +3,7 @@ package ca.charland.activity.manage;
 import android.app.Activity;
 import ca.charland.R;
 
-public abstract class FirstActivityDataHolder implements MultipleActivityData {
+public class FirstActivityDataHolder implements MultipleActivityData {
 
 	@Override
 	public int getAdd() {
@@ -23,5 +23,17 @@ public abstract class FirstActivityDataHolder implements MultipleActivityData {
 	public static void exit(Activity activity) {
 		activity.finish();
 		System.exit(0);
+	}
+
+	@Override
+	public Class<?> getNextAddClass() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Class<?> getNextViewClass() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
