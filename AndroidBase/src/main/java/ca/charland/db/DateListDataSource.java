@@ -24,7 +24,7 @@ public class DateListDataSource extends DataSource {
 	}
 
 	protected BaseData getData() {
-		return null;
+		return new BaseData();
 	}
 
 	@Override
