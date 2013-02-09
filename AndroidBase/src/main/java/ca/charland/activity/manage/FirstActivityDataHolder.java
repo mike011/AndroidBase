@@ -27,13 +27,11 @@ public class FirstActivityDataHolder implements MultipleActivityData {
 
 	@Override
 	public Class<?> getNextAddClass() {
-		// TODO Auto-generated method stub
-		return null;
+		return AddANewPersonActivity.class;
 	}
 
 	@Override
 	public Class<?> getNextViewClass() {
-		// TODO Auto-generated method stub
-		return null;
+		return AllPeopleListActivity.class;
 	}
 }
