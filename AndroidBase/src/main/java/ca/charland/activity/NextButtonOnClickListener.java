@@ -24,7 +24,7 @@ public class NextButtonOnClickListener implements View.OnClickListener {
 	protected final BaseActivity activity;
 	private final DataSource datasource;
 
-	protected NextButtonOnClickListener(BaseActivity activity, DataSource datasource) {
+	public NextButtonOnClickListener(BaseActivity activity, DataSource datasource) {
 		this.activity = activity;
 		this.datasource = datasource;
 	}
