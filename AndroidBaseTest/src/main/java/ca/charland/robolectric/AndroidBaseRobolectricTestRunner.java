@@ -28,7 +28,7 @@ public class AndroidBaseRobolectricTestRunner extends RobolectricTestRunner {
 	private Injector injector;
 
 	public AndroidBaseRobolectricTestRunner(Class<?> testClass) throws InitializationError {
-		this(testClass, getAndroidBaseFolder() + "\\AndroidBase");
+		this(testClass, getAndroidBaseFolder() + File.separator + "AndroidBase");
 	}
 
 	private static String getAndroidBaseFolder() {
