@@ -15,7 +15,7 @@ import ca.charland.db.DateListDataSource;
 /**
  * @author mcharland
  */
-public class DateAndTimeActivity extends BaseActivity {
+public abstract class BaseDateAndTimeActivity extends BaseActivity {
 
 	private static final int SECONDS = 0;
 
@@ -96,10 +96,5 @@ public class DateAndTimeActivity extends BaseActivity {
 	@Override
 	protected DataSource getDataSource() {
 		return new DateListDataSource(null);
-	}
-
-	@Override
-	protected Class<?> getNextClass() {
-		return null;
 	}
 }

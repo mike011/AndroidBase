@@ -22,9 +22,9 @@ import com.google.inject.Inject;
  * @author mcharland
  */
 @RunWith(BaseRobolectricTestRunner.class)
-public class DateAndTimeActivityTest {
+public class BaseDateAndTimeActivityTest {
 
-	private static class ActivityUnderTest extends DateAndTimeActivity {
+	private static class ActivityUnderTest extends BaseDateAndTimeActivity {
 
 		@Override 
 		protected DataSource getDataSource() {
@@ -47,7 +47,7 @@ public class DateAndTimeActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.activity.DateAndTimeActivity#getValues()}.
+	 * Test method for {@link ca.charland.activity.BaseDateAndTimeActivity#getValues()}.
 	 */
 	@Test
 	public final void testGetValues() {
@@ -59,7 +59,7 @@ public class DateAndTimeActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.activity.DateAndTimeActivity#getNextClass()}.
+	 * Test method for {@link ca.charland.activity.BaseDateAndTimeActivity#getNextClass()}.
 	 */
 	@Test
 	public final void testGetNextClass() {
