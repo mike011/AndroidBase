@@ -20,7 +20,7 @@ import ca.charland.db.Data;
  * 
  * @author mcharland
  */
-public abstract class AllPeopleListActivity extends RoboListActivity {
+public abstract class BaseAllPeopleListActivity extends RoboListActivity {
 
 	public static final String PERSON_ID = "ROW_PERSON_ID";
 
@@ -55,7 +55,7 @@ public abstract class AllPeopleListActivity extends RoboListActivity {
 				Intent intent = new Intent(getBaseContext(), getHomeActivity());
 
 				Data selectedItem = data.get(pos);
-				intent.putExtra(AllPeopleListActivity.PERSON_ID, selectedItem.getId());
+				intent.putExtra(BaseAllPeopleListActivity.PERSON_ID, selectedItem.getId());
 
 				startActivity(intent);
 			}

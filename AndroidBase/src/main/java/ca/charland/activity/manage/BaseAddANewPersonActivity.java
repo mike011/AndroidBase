@@ -14,7 +14,7 @@ import ca.charland.db.BasicPersonDataSource;
  * 
  * @author mcharland
  */
-public abstract class AddANewPersonActivity extends RoboActivity {
+public abstract class BaseAddANewPersonActivity extends RoboActivity {
 
 	protected BasicPersonDataSource datasource;
 

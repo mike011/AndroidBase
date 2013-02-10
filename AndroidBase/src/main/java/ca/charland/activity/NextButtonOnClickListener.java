@@ -5,7 +5,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import ca.charland.activity.manage.AllPeopleListActivity;
+import ca.charland.activity.manage.BaseAllPeopleListActivity;
 import ca.charland.db.DataSource;
 import ca.charland.db.DataTable;
 
@@ -59,7 +59,7 @@ public class NextButtonOnClickListener implements View.OnClickListener {
 		if (isLastActivity(activity)) {
 			newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		}
-		newIntent.putExtra(AllPeopleListActivity.PERSON_ID.toString(), getPerson());
+		newIntent.putExtra(BaseAllPeopleListActivity.PERSON_ID.toString(), getPerson());
 		return newIntent;
 	}
 
@@ -92,7 +92,7 @@ public class NextButtonOnClickListener implements View.OnClickListener {
 		if (intent != null) {
 			// Don't know how inject extras in testing.
 			Bundle extras = intent.getExtras();
-			person = extras.getInt(AllPeopleListActivity.PERSON_ID.toString());
+			person = extras.getInt(BaseAllPeopleListActivity.PERSON_ID.toString());
 		}
 		return person;
 	}

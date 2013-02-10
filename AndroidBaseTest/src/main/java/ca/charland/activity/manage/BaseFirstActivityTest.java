@@ -9,20 +9,20 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.charland.robolectric.AndroidBaseRobolectricTestRunner;
+import ca.charland.robolectric.BaseRobolectricTestRunner;
 
-@RunWith(AndroidBaseRobolectricTestRunner.class)
+@RunWith(BaseRobolectricTestRunner.class)
 public class BaseFirstActivityTest {
 
 	private static class TestBaseFirstActivity extends BaseFirstActivity {
 
 		@Override
-		protected PersonHomeActivityDataHolder getSingleUserModeDataHolder() {
+		protected BasePersonHomeActivityDataHolder getSingleUserModeDataHolder() {
 			return null;
 		}
 
 		@Override
-		protected FirstActivityDataHolder getMultipleUserModeDataHolder() {
+		protected BaseFirstActivityDataHolder getMultipleUserModeDataHolder() {
 			return null;
 		}
 

@@ -16,7 +16,7 @@ import ca.charland.R;
  * 
  * @author mcharland
  */
-public abstract class PersonHomeActivity extends RoboActivity {
+public abstract class BasePersonHomeActivity extends RoboActivity {
 
 	@InjectView(R.id.add)
 	private Button add;
@@ -24,7 +24,7 @@ public abstract class PersonHomeActivity extends RoboActivity {
 	@InjectView(R.id.view)
 	private Button view;
 	
-	private PersonHomeActivityDataHolder activityData;
+	private BasePersonHomeActivityDataHolder activityData;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public abstract class PersonHomeActivity extends RoboActivity {
 		setOnClickListeners();
 	}
 
-	protected abstract PersonHomeActivityDataHolder getPersonHomActivityDataHolder();
+	protected abstract BasePersonHomeActivityDataHolder getPersonHomActivityDataHolder();
 
 	private void setOnClickListeners() {
 		add.setOnClickListener(getOnClickListener(activityData.getNextAddClass()));
@@ -54,7 +54,7 @@ public abstract class PersonHomeActivity extends RoboActivity {
 	private static Intent getActivity(Context context, Intent oldIntent, Class<?> nextClass) {
 		Intent intent = new Intent(context, nextClass);
 		Bundle extras = oldIntent.getExtras();
-		intent.putExtra(AllPeopleListActivity.PERSON_ID, extras.getInt(AllPeopleListActivity.PERSON_ID));
+		intent.putExtra(BaseAllPeopleListActivity.PERSON_ID, extras.getInt(BaseAllPeopleListActivity.PERSON_ID));
 		return intent;
 	}
 

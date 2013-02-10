@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.R;
-import ca.charland.activity.manage.AllPeopleListActivity;
+import ca.charland.activity.manage.BaseAllPeopleListActivity;
 import ca.charland.db.DataSource;
 import ca.charland.db.DataTable;
 import ca.charland.db.DateListDataSource;
@@ -66,7 +66,7 @@ public class DateAndTimeActivity extends BaseActivity {
 
 	private void addPerson(ContentValues values) {
 		Bundle extras = getIntent().getExtras();
-		long person = extras.getInt(AllPeopleListActivity.PERSON_ID.toString());
+		long person = extras.getInt(BaseAllPeopleListActivity.PERSON_ID.toString());
 		values.put(DataTable.PERSON_COLUMN_NAME, person);
 	}
 

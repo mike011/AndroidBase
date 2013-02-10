@@ -14,14 +14,14 @@ import android.content.ContentValues;
 import android.content.Intent;
 import ca.charland.db.DataSource;
 import ca.charland.db.DataTable;
-import ca.charland.robolectric.AndroidBaseRobolectricTestRunner;
+import ca.charland.robolectric.BaseRobolectricTestRunner;
 
 import com.google.inject.Inject;
 
 /**
  * @author mcharland
  */
-@RunWith(AndroidBaseRobolectricTestRunner.class)
+@RunWith(BaseRobolectricTestRunner.class)
 public class DateAndTimeActivityTest {
 
 	private static class ActivityUnderTest extends DateAndTimeActivity {

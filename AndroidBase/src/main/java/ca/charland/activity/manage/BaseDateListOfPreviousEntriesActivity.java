@@ -21,7 +21,7 @@ import ca.charland.db.DateListDataSource;
  * @author mcharland
  * 
  */
-public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity {
+public abstract class BaseDateListOfPreviousEntriesActivity extends RoboListActivity {
 
 	public static final String ID = "DATE";
 
@@ -60,7 +60,7 @@ public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity
 
 	private int getID() {
 		Bundle extras = getIntent().getExtras();
-		int id = extras.getInt(AllPeopleListActivity.PERSON_ID);
+		int id = extras.getInt(BaseAllPeopleListActivity.PERSON_ID);
 		return id;
 	}
 

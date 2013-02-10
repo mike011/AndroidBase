@@ -11,12 +11,12 @@ import org.junit.runner.RunWith;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import ca.charland.robolectric.AndroidBaseRobolectricTestRunner;
+import ca.charland.robolectric.BaseRobolectricTestRunner;
 
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.shadows.ShadowSQLiteDatabase;
 
-@RunWith(AndroidBaseRobolectricTestRunner.class)
+@RunWith(BaseRobolectricTestRunner.class)
 public class DatabaseHelperTest {
 
 	private DatabaseConnection helper;

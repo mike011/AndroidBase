@@ -60,9 +60,9 @@ public abstract class BaseFirstActivity extends RoboActivity {
 		}
 	}
 	
-	protected abstract PersonHomeActivityDataHolder getSingleUserModeDataHolder();
+	protected abstract BasePersonHomeActivityDataHolder getSingleUserModeDataHolder();
 
-	protected abstract FirstActivityDataHolder getMultipleUserModeDataHolder();
+	protected abstract BaseFirstActivityDataHolder getMultipleUserModeDataHolder();
 	
 	private void setOnClickListeners() {
 		add.setOnClickListener(getOnClickListener(activityData.getNextAddClass()));
@@ -84,7 +84,7 @@ public abstract class BaseFirstActivity extends RoboActivity {
 				Intent intent = new Intent(getBaseContext(), nextClass);
 				if (PreferencesActivity.isSingleUserModeSet(activity) && nextClass != PreferencesActivity.class) {
 					int id = PreferencesActivity.getPersonID(activity);
-					intent.putExtra(AllPeopleListActivity.PERSON_ID, id);
+					intent.putExtra(BaseAllPeopleListActivity.PERSON_ID, id);
 				}
 				return intent;
 			}
@@ -96,7 +96,7 @@ public abstract class BaseFirstActivity extends RoboActivity {
 		
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			FirstActivityDataHolder.exit(this);
+			BaseFirstActivityDataHolder.exit(this);
 		}
 		return true;
 	}

@@ -17,9 +17,9 @@ import org.junit.runner.RunWith;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import ca.charland.robolectric.AndroidBaseRobolectricTestRunner;
+import ca.charland.robolectric.BaseRobolectricTestRunner;
 
-@RunWith(AndroidBaseRobolectricTestRunner.class)
+@RunWith(BaseRobolectricTestRunner.class)
 public class DataSourceTest {
 
 	private DataSource pds;

@@ -9,7 +9,7 @@ import ca.charland.R;
  * 
  * @author mcharland.
  */
-public abstract class SingleDateValuesEnteredActivity extends RoboActivity {
+public abstract class BaseSingleDateValuesEnteredActivity extends RoboActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

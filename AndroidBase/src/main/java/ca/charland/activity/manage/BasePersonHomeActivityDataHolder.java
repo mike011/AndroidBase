@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import ca.charland.R;
 
-public abstract class PersonHomeActivityDataHolder implements MultipleActivityData {
+public abstract class BasePersonHomeActivityDataHolder implements MultipleActivityData {
 
 	@Override
 	public int getAdd() {

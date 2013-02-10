@@ -16,9 +16,9 @@ import android.database.SQLException;
 import ca.charland.R;
 import ca.charland.db.Data;
 import ca.charland.db.DataSource;
-import ca.charland.robolectric.AndroidBaseRobolectricTestRunner;
+import ca.charland.robolectric.BaseRobolectricTestRunner;
 
-@RunWith(AndroidBaseRobolectricTestRunner.class)
+@RunWith(BaseRobolectricTestRunner.class)
 public class BaseActivityTest {
 
 	private TestBaseActivity activity;
@@ -82,7 +82,7 @@ public class BaseActivityTest {
 
 		@Override
 		protected Class<?> getNextClass() {
-			return AndroidBaseRobolectricTestRunner.class;
+			return BaseRobolectricTestRunner.class;
 		}
 	}
 
@@ -133,7 +133,7 @@ public class BaseActivityTest {
 
 	@Test
 	public void testGetNextClass() {
-		assertThat(activity.getNextClass().toString(), is(AndroidBaseRobolectricTestRunner.class.toString()));
+		assertThat(activity.getNextClass().toString(), is(BaseRobolectricTestRunner.class.toString()));
 	}
 
 }

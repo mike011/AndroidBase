@@ -12,9 +12,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.content.ContentValues;
-import ca.charland.robolectric.AndroidBaseRobolectricTestRunner;
+import ca.charland.robolectric.BaseRobolectricTestRunner;
 
-@RunWith(AndroidBaseRobolectricTestRunner.class)
+@RunWith(BaseRobolectricTestRunner.class)
 public class BasicPersonDataSourceTest {
 
 	private BasicPersonDataSource bpds;
