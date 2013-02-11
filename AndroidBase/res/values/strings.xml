@@ -17,4 +17,6 @@
     <string name="contentDescription">Image to put meaning to the numbers.</string>
     <string name="settingsButton">Settings</string>
     <string name="singleUser">Enable Single User Mode?</string>
+    <string name="generic_error_message">Invalid</string>
+
 </resources>

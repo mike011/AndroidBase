@@ -3,7 +3,7 @@ package ca.charland.activity.manage;
 import android.app.Activity;
 import ca.charland.R;
 
-public class BaseFirstActivityDataHolder implements MultipleActivityData {
+public abstract class BaseFirstActivityDataHolder implements MultipleActivityData {
 
 	@Override
 	public int getAdd() {
@@ -28,10 +28,5 @@ public class BaseFirstActivityDataHolder implements MultipleActivityData {
 	@Override
 	public Class<?> getNextAddClass() {
 		return BaseAddANewPersonActivity.class;
-	}
-
-	@Override
-	public Class<?> getNextViewClass() {
-		return BaseAllPeopleListActivity.class;
 	}
 }

@@ -2,6 +2,7 @@ package ca.charland.activity.manage;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -10,12 +11,20 @@ import org.junit.Test;
 import ca.charland.R;
 
 public class BaseFirstActivityDataHolderTest {
+	
+	private static class EmptyBaseFirstActivityDataHolder extends BaseFirstActivityDataHolder {
+
+		@Override
+		public Class<?> getNextViewClass() {
+			return null;
+		}
+	}
 
 	private BaseFirstActivityDataHolder activity;
 
 	@Before
 	public void setup() {
-		activity = new BaseFirstActivityDataHolder();
+		activity = new EmptyBaseFirstActivityDataHolder();
 	}
 
 	@Test
@@ -40,6 +49,6 @@ public class BaseFirstActivityDataHolderTest {
 
 	@Test
 	public void testGetNextViewClass() {
-		assertThat(activity.getNextViewClass().toString(), is(BaseAllPeopleListActivity.class.toString()));
+		assertThat(activity.getNextViewClass(), is(nullValue()));
 	}
 }

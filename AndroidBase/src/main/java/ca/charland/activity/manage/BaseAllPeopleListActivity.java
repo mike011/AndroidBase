@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ca.charland.R;
 import ca.charland.db.AbstractPersonDataSource;
+import ca.charland.db.BasicPersonDataSource;
 import ca.charland.db.Data;
 
 /**
@@ -41,7 +42,9 @@ public abstract class BaseAllPeopleListActivity extends RoboListActivity {
 		datasource.closeDatabaseConnection();
 	}
 
-	protected abstract AbstractPersonDataSource getPersonDataSource();
+	protected AbstractPersonDataSource getPersonDataSource() {
+		return new BasicPersonDataSource(this);
+	}
 
 	private void setListAdapter() {
 		ArrayAdapter<Data> adapter = new ArrayAdapter<Data>(this, R.layout.people_list, datasource.getAllValues());

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import ca.charland.R;
 import ca.charland.db.BasicPersonDataSource;
 
@@ -14,7 +15,7 @@ import ca.charland.db.BasicPersonDataSource;
  * 
  * @author mcharland
  */
-public abstract class BaseAddANewPersonActivity extends RoboActivity {
+public class BaseAddANewPersonActivity extends RoboActivity {
 
 	protected BasicPersonDataSource datasource;
 
@@ -35,7 +36,9 @@ public abstract class BaseAddANewPersonActivity extends RoboActivity {
 		save.setOnClickListener(new SaveOnClickListener());
 	}
 
-	protected abstract BasicPersonDataSource getDataSource();
+	protected BasicPersonDataSource getDataSource() {
+		return new BasicPersonDataSource(this);
+	}
 	
 	@Override
 	protected void onResume() {
@@ -57,5 +60,34 @@ public abstract class BaseAddANewPersonActivity extends RoboActivity {
 		}
 	}
 	
-	protected abstract void handleSaveOnClick();
+	protected void handleSaveOnClick() {
+		int messageResourceID = R.string.valid_name;
+		if (isContentValid() ) {
+			messageResourceID = R.string.generic_error_message;
+		} else {
+			saveContent();
+			clearFields();
+		}
+		Toast.makeText(getBaseContext(), getMessageString(messageResourceID), Toast.LENGTH_SHORT).show();
+	}
+
+	protected void saveContent() {
+		datasource.create(getNameString());
+	}
+
+	protected boolean isContentValid() {
+		return getNameString().length() == 0;
+	}
+	
+	protected String getNameString() {
+		return name.getText().toString();
+	}
+	
+	private String getMessageString(int message) {
+		return getResources().getString(message);
+	}
+	
+	protected void clearFields() {
+		name.setText("");
+	}
 }
