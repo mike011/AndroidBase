@@ -30,7 +30,7 @@ public class BasicPersonDataTable {
 		}
 	}
 
-	static final String CREATE_PEOPLE_TABLE = getPeopleTable();
+	public static final String CREATE_PEOPLE_TABLE = getPeopleTable();
 
 	private static String getPeopleTable() {
 		StringBuilder sql = new StringBuilder();
